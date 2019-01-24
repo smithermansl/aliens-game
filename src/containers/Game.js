@@ -1,9 +1,14 @@
 import { connect } from 'react-redux'
 
 import App from '../App'
+import { moveObjects } from '../actions'
 
 const mapState = state => ({
-  message: state.message 
+  angle: state.angle
 })
 
-export default connect(mapState)(App)
+const mapDispatch = dispatch => ({
+  moveObjects: mousePosition => dispatch(moveObjects(mousePosition))
+})
+
+export default connect(mapState, mapDispatch)(App)
